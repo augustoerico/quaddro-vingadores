@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import java.util.List;
 
+import br.com.erico.vingadores.controller.VingadorAdapter;
 import br.com.erico.vingadores.controller.Vingadores;
 import br.com.erico.vingadores.model.Vingador;
 
@@ -19,13 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lsvVingadores = (ListView) findViewById(R.id.lsvVingadores);
-
         List vingadores = Vingadores.getGrupoVingadores();
 
-        ArrayAdapter<Vingador> adapter = new ArrayAdapter<>
-                (MainActivity.this, android.R.layout.simple_list_item_1, vingadores);
-
+        VingadorAdapter adapter = new VingadorAdapter(MainActivity.this, vingadores);
+        lsvVingadores = (ListView) findViewById(R.id.lsvVingadores);
         lsvVingadores.setAdapter(adapter);
 
     }
