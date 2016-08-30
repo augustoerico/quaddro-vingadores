@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.List;
+
+import br.com.erico.vingadores.controller.Vingadores;
+import br.com.erico.vingadores.model.Vingador;
+
 public class MainActivity extends AppCompatActivity {
 
     private ListView lsvVingadores;
@@ -16,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
         lsvVingadores = (ListView) findViewById(R.id.lsvVingadores);
 
-        String[] pecados = {"Inveja", "Ira", "Ganância", "Gula", "Luxuria", "Avareza", "Vaidade"};
+        List vingadores = Vingadores.getGrupoVingadores();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (MainActivity.this, android.R.layout.simple_list_item_1, pecados);
+        ArrayAdapter<Vingador> adapter = new ArrayAdapter<>
+                (MainActivity.this, android.R.layout.simple_list_item_1, vingadores);
 
         lsvVingadores.setAdapter(adapter);
 
