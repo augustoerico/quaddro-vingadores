@@ -54,9 +54,9 @@ public class VingadorAdapter extends ArrayAdapter<Vingador> {
         }
 
         Vingador vingador = vingadores.get(position);
-        holder.imvFoto.setImageResource(vingador.foto);
-        holder.txvNome.setText(vingador.nome);
-        holder.txvPoderes.setText(vingador.poderes);
+        holder.imvFoto.setImageResource(vingador.getFoto());
+        holder.txvNome.setText(vingador.getNome());
+        holder.txvPoderes.setText(vingador.getPoderes());
 
         return view;
     }
