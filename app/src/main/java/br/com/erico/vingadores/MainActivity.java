@@ -2,6 +2,7 @@ package br.com.erico.vingadores;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -20,11 +21,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List vingadores = Vingadores.getGrupoVingadores();
+        View header = (View) getLayoutInflater().inflate(R.layout.cabecalho, null);
+        View footer = (View) getLayoutInflater().inflate(R.layout.cabecalho, null);
 
-        VingadorAdapter adapter = new VingadorAdapter(MainActivity.this, vingadores);
+        VingadorAdapter adapter = new VingadorAdapter(MainActivity.this, Vingadores.getGrupoVingadores());
         lsvVingadores = (ListView) findViewById(R.id.lsvVingadores);
+        lsvVingadores.addHeaderView(header);
+        lsvVingadores.addFooterView(footer);
         lsvVingadores.setAdapter(adapter);
-
     }
 }
